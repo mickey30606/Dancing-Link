@@ -1,9 +1,11 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 #include "DL.h"
 
 bool DLX::init(int number){
     number++;
+    standard_row = (Node **) calloc(number, sizeof(Node *));
     Node *tmp_left = NULL;
     head = NULL;
     tmp_left = head = add_standard_node(tmp_left, head, 0);
@@ -14,7 +16,7 @@ bool DLX::init(int number){
     if(head == NULL){
         return 0;
     }else{
-        check_standard_node(head);
+        //check_standard_node(head);
         return 1;
     }
 }
@@ -25,6 +27,7 @@ Node* DLX::add_standard_node(Node* tmp_left, Node* tmp_head, int num){
     p->left = tmp_left;
     p->right = tmp_head;
     p->number = num;
+    standard_row[num] = p;
     if(tmp_left != NULL && tmp_head != NULL){
         tmp_left->right = p;
         tmp_head->left = p;
@@ -37,6 +40,13 @@ void DLX::check_standard_node(Node *head){
     for(Node *i = head->right; i != head ; i = i->right){
         cout << i->number << endl;
     }
+    for(int i=0;i<=324;i++){
+        cout << standard_row[i]->number << endl;
+    }
 
     return;
+}
+
+bool DLX::add_member_node(int x, int y, int number){
+
 }
