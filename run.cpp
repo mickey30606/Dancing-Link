@@ -22,5 +22,14 @@ int main(void){
             }
         }
     }
+    int n = a.Dance(0);
+    if(n == 1){
+        cout << "1" << endl;
+        a.output_answer();
+    }else{
+        cout << n << endl;
+    }
+
+    //a.check_sum();
 
 }
